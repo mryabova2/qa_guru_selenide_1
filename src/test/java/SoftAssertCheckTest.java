@@ -9,7 +9,7 @@ public class SoftAssertCheckTest {
     void checkSoftAssertPage(){
         open("https://github.com/");
         $("[data-test-selector=nav-search-input]").setValue("selenide").pressEnter();
-        $$("ul.repo-list li").first().$("a").click();
+        $("ul.repo-list li").$("a").click();
         $("#wiki-tab").click();
         $("#wiki-pages-filter").setValue("SoftAssertions");
         $("#wiki-pages-box").$(byText("SoftAssertions")).click();
@@ -21,5 +21,6 @@ public class SoftAssertCheckTest {
         open("https://the-internet.herokuapp.com/drag_and_drop");
         $("#column-a").dragAndDropTo("#column-b");
         $("#column-b").shouldHave(text("A"));
+        $("#column-a").shouldHave(text("B"));
     }
 }
